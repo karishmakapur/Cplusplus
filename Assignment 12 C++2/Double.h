@@ -1,0 +1,86 @@
+/*
+Karishma Kapur
+CSIS 123A
+ID: 0558326
+11/11/18
+Assignment 12 - Polymorphism
+Double.h file
+Contains Double class and prototypes for methods and constructors
+*/
+#pragma once
+#ifndef DOUBLE
+#define DOUBLE
+#include "Integer.h"
+#include <string>
+
+using std::string;
+
+//Create a class called Double. This class should have separate header and.cpp file
+namespace Karishma {
+	class Double : public Number {
+	private:
+		//primitive double data section
+		//bool nan = NULL;
+		//private functions
+		//void isNaN(string s);
+		virtual void recursiveNaN(string s);
+
+	public:
+
+
+		//Functions
+		void equals(const double num); //void function that sets the value of the object
+		void equals(const string s);
+
+		Double& add(const Double &d); //take Double as an argument and return Double
+		Double& sub(const Double &d); //take Double as an argument and return Double
+		Double& mul(const Double &d); //take Double as an argument and return Double
+		Double& div(const Double &d); //take Double as an argument and return Double
+
+		double toDouble() const; //return a primitive double
+
+		//Overloaded Functions
+		Double& add(const double &num); //should take primitive values and return the base class type
+		Double& sub(const double &num); //should take primitive values and return the base class type
+		Double& mul(const double &num); //should take primitive values and return the base class type
+		Double& div(const double &num); //should take primitive values and return the base class type
+
+		//Default constructor
+		Double();
+
+		//Overloaded Constructors
+		Double(const Double& d);
+		Double(double num);
+		Double(Integer& i);
+		Double(string s);
+
+		//destructor
+		~Double();
+
+		//Operator Overloading Functions for Double Object taking a Double object argument
+		Double& operator + (const Double &d);
+		Double& operator - (const Double &d);
+		Double& operator * (const Double &d);
+		Double& operator / (const Double &d);
+		Double& operator = (const Double &d);
+		bool operator == (const Double &d);
+		bool operator != (const Double &d);
+
+		//Operator Overloading Functions for Double Object taking a primitive double argument.
+		Double& operator + (const double &num);
+		Double& operator - (const double &num);
+		Double& operator * (const double &num);
+		Double& operator / (const double &num);
+		Double& operator = (const double &num);
+		bool operator == (const double &num);
+		bool operator != (const double &num);
+
+		//Assignment 6 functions
+		string toString() const; //toString() - Returns a string representation of the number
+
+		//bool isNaN();
+		Double& operator=(const string s);
+
+	};
+}
+#endif
